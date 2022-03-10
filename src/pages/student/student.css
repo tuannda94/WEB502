@@ -1,0 +1,37 @@
+button{
+    cursor: pointer;
+}
+
+.bang{
+    width: 1600px;
+}
+.tieuDe{
+    font-weight: 800;
+    color: red;
+    width: max-content;
+    margin-bottom: 30px;
+}
+.content{
+    color: white;
+}
+.button{
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    border: none;
+    background-color: aqua;
+    color: red;
+    font-weight: 700;
+    font-size: smaller;
+}
+
+.button:hover {
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    border: none;
+    background-color: purple;
+    color: blue;
+    font-weight: 700;
+    font-size: smaller;
+}
