@@ -1,7 +1,6 @@
 import Table from 'react-bootstrap/Table'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, {useState}  from 'react';
-import './student.css'
+import React, { useState } from 'react';
 const Student = () => {
     const [data, setData] = useState(
         [
