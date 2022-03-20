@@ -7,8 +7,16 @@ import './App.css';
 import Login from './pages/login';
 // Voi import khong default thi co the as
 import {USER_LOGIN as LOGIN_USER} from './pages/login';
-
 import TableCustom from './pages/table';
+
+import {Routes, Route, Link} from 'react-router-dom';
+import ClientLayout from './pages/layouts/ClientLayout';
+import Product from './pages/product/Product';
+import AdminLayout from './pages/layouts/AdminLayout';
+import HomePage from './pages/homepage';
+import AdminHomePage from './pages/adminHomePage';
+import ProductDetail from './pages/product/ProductDetail';
+import ProductForm from './pages/product/ProductForm';
 
 type Student = {
   name: string,
@@ -79,33 +87,37 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={() => setCount(count+1)}>Update count</button>
-      <p>{count}</p>
-      <button onClick={() => setName('tuannda3')}>Update name</button>
-      <p>Name: {name}</p>
-      <button
-        onClick={() => setShowTable(!isShowTable)}
-        >{isShowTable === true ? 'An' : 'Hien'} bang</button>
-        <button onClick={() => onAddStudent()}>Add sv</button>
-      {/* Them component Table vao trong App */}
-      {
-        isShowTable === true
-          ? <TableCustom
-            rows={students}
-            headCells={headCells}
-          />
-        : null
-      }
+      <div>
+        <ul>
+          <li><Link to={'/'} >Client Home</Link></li>
+          <li> <Link to={'/product'} >Client Product</Link></li>
+          <li><Link to={'/admin'} >Admin Home</Link></li>
+          <li><Link to={'/admin/product'} >Admin Product</Link></li>
+        </ul>
+      </div>
 
+      {/* Cau hinh route */}
+      <Routes>
+        <Route path='/' element={<ClientLayout />}>
+          {/* / */}
+            <Route index element={<HomePage />} />
+            {/* /product */}
+            <Route path='product' element={<Product />} />
+        </Route>
 
-      {/* Them view Login vao trong App */}
-      {/* Khong co the dong */}
-      {/* viewName la ten cua 1 trong so cac prop truyen vao */}
-      <Login
-        viewName={'Login view from APP'}
-        username='tuannda3' // voi gia tri la string thi co the k can ngoac
-        password='123123123'
-      />
+        <Route path='admin' element={<AdminLayout />}>
+          {/* /admin */}
+            <Route index element={<AdminHomePage />} />
+            {/* /admin/product */}
+            {/* <Route path='product' element={<Product />} /> */}
+            <Route path='product'>
+              <Route index element={<Product />} />
+              <Route path=':id' element={<ProductDetail />} />
+              <Route path=':id/edit' element={<ProductForm />} />
+            </Route>
+        </Route>
+      </Routes>
+
     </div>
   );
 }
