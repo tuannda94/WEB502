@@ -6,4 +6,4 @@ export const getProducts = () => {
 
 export const getProduct = (id:number | string) => {
     return axios.get(`/products/${id}`);
-}
+};
