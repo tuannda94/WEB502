@@ -1,5 +1,6 @@
 import React, { Component, useEffect, useState } from 'react';
 import { getProducts } from '../client_api/product';
+import {Link} from 'react-router-dom';
 
 class ProductListOld extends Component {
     state = {
@@ -52,11 +53,36 @@ function ProductList() {
     }, []);
 
     return (
-        // <div onClick={() => setCount(count + 1)}>
-        //     Product List component
-        //     <h1>{count}</h1>
-        // </div>
-        <div >
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Name</td>
+                        <td>Price</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        products.map(product => (
+                            <tr key={product.id}>
+                                <td>{product.id}</td>
+                                <td>{product.name}</td>
+                                <td>{product.price}</td>
+                                <td>
+                                    <Link to={`/products/${product.id}`}>
+                                        <button>Detail</button>
+                                    </Link>
+                                    <button>Edit</button>
+                                    <button>Delete</button>
+                                </td>
+                            </tr>
+                        ))
+                    }
+                </tbody>
+            </table>
+
         </div>
     );
 }

@@ -1,10 +1,16 @@
 import React from 'react';
-import {Outlet} from 'react-router-dom';
+import {Outlet, Link} from 'react-router-dom';
 
 function ClientLayout () {
     return (
         <div>
             <header>HEADER</header>
+            <nav>
+                <ul>
+                    <li><Link to={'/'}>Home</Link></li>
+                    <li><Link to={'/products'}>Product</Link></li>
+                </ul>
+            </nav>
             <main>
                 {/* CONTENT */}
                 {/* Đây là phần thay đổi */}
