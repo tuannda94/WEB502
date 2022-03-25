@@ -1,14 +1,29 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "name": "Iphone 12",
-            "price": 20000000
-        },
-        {
-            "id": 2,
-            "name": "Iphone 13",
-            "price": 30000000
-        }
-    ]
+  "products": [
+    {
+      "id": 3,
+      "name": "Iphone 13",
+      "price": 30000000
+    },
+    {
+      "id": 4,
+      "name": "Iphone 13",
+      "price": 30000000
+    },
+    {
+      "id": 5,
+      "name": "Iphone 13",
+      "price": 30000000
+    },
+    {
+      "name": "SAMSUNG",
+      "price": 12000000,
+      "id": 6
+    },
+    {
+      "name": "OPPO FIND X",
+      "price": 30000000,
+      "id": 7
+    }
+  ]
 }

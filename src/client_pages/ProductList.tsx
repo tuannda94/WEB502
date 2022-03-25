@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from 'react';
-import { getProducts } from '../client_api/product';
+import { deleteProduct, getProducts } from '../client_api/product';
 import {Link} from 'react-router-dom';
 
 class ProductListOld extends Component {
@@ -27,7 +27,7 @@ class ProductListOld extends Component {
     }
 }
 
-type PRODUCT_TYPE = {
+export type PRODUCT_TYPE = {
     id: number | string,
     name: string,
     price: number
@@ -46,6 +46,16 @@ function ProductList() {
         setProducts(response.data);
     };
 
+    const handleDelete = async (id: number|string) => {
+        // 1. Chờ việc xoá phản hồi
+        const response = await deleteProduct(id);
+        // 2. Kiểm tra trạng thái phản hồi, nếu 200 là thành công
+        // 2.1 Call API lấy ds mới về
+        if (response.status === 200) {
+            handleGetProducts();
+        }
+    };
+
     console.log(products);
 
     useEffect(() => {
@@ -54,6 +64,11 @@ function ProductList() {
 
     return (
         <div>
+            <div>
+                <Link to={'/products/create'}>
+                    <button>Tạo mới</button>
+                </Link>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -75,7 +90,9 @@ function ProductList() {
                                         <button>Detail</button>
                                     </Link>
                                     <button>Edit</button>
-                                    <button>Delete</button>
+                                    <button onClick={() => handleDelete(product.id)}>
+                                        Delete
+                                    </button>
                                 </td>
                             </tr>
                         ))

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom';
 import { getProduct } from '../client_api/product';
+import {PRODUCT_TYPE} from './ProductList';
 
 function ProductDetail() {
     const {id} = useParams();
 
-    const [product, setProduct] = useState();
+    const [product, setProduct] = useState<PRODUCT_TYPE>();
 
     const handleGetProductDetail = async () => {
         const response = await getProduct(id);

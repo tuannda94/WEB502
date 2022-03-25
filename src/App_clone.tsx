@@ -3,6 +3,7 @@ import {Routes, Route} from 'react-router-dom';
 import Dashboard from './client_pages/Dashboard';
 import ClientLayout from './client_pages/layout';
 import ProductDetail from './client_pages/ProductDetail';
+import ProductForm from './client_pages/ProductForm';
 import ProductList from './client_pages/ProductList';
 
 // function ClientRoute() {
@@ -31,6 +32,8 @@ function AppClone() {
                     <Route path={'products'}>
                         <Route index element={<ProductList />} />
                         <Route path={':id'} element={<ProductDetail />} />
+                        <Route path={'create'} element={<ProductForm />} />
+                        <Route path={'edit/:id'} element={<ProductForm />} />
                     </Route>
                 </Route>
             </Routes>

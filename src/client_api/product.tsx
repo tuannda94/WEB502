@@ -11,3 +11,7 @@ export const getProduct = (id:string|undefined) => {
 export const createProduct = (data :any) => {
     return api.post('/products', data);
 };
+
+export const deleteProduct = (id: number|string) => {
+    return api.delete(`/products/${id}`);
+}
