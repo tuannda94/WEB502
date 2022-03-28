@@ -25,5 +25,16 @@
       "price": 30000000,
       "id": 7
     }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "Tieu de bai viet",
+      "desc": "Mo ta bai viet",
+      "author": "tuannda3",
+      "category": "Tin tuc",
+      "thumbnail": "",
+      "status": 1
+    }
   ]
 }
