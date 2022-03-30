@@ -12,6 +12,10 @@ export const createPost = (data :any) => {
     return api.post('/posts', data);
 };
 
+export const updatePost = (id:string|undefined, data :any) => {
+    return api.put(`/posts/${id}`, data);
+};
+
 export const deletePost = (id: number|string) => {
     return api.delete(`/posts/${id}`);
 }

@@ -29,12 +29,21 @@
   "posts": [
     {
       "id": 1,
-      "title": "Tieu de bai viet",
+      "title": "Tieu de bai viet update",
       "desc": "Mo ta bai viet",
       "author": "tuannda3",
       "category": "Tin tuc",
       "thumbnail": "",
-      "status": 1
+      "status": 0
+    },
+    {
+      "title": "Sách nấu ăn",
+      "desc": "Nấu ăn",
+      "author": "Tác giả",
+      "category": "Sách",
+      "thumbnail": "",
+      "status": 0,
+      "id": 2
     }
   ]
 }

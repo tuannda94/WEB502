@@ -35,6 +35,9 @@ export default function PostList() {
                         <tr>
                             <td>ID</td>
                             <td>Tiêu đề</td>
+                            <td>Tác giả</td>
+                            <td>Trạng thái</td>
+                            <td>Hành động</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,6 +46,9 @@ export default function PostList() {
                                 <tr key={post.id}>
                                     <td>{post.id}</td>
                                     <td>{post.title}</td>
+                                    <td>{post.author}</td>
+                                    <td>{post.status ? 'Kích hoạt': 'Không kích hoạt'}</td>
+                                    <td><Link to={`/posts/edit/${post.id}`}>Chỉnh sửa</Link></td>
                                 </tr>
                             ))
                         }
