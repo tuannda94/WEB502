@@ -30,7 +30,8 @@ class ProductListOld extends Component {
 export type PRODUCT_TYPE = {
     id: number | string,
     name: string,
-    price: number
+    price: number,
+    image: string|undefined
 };
 
 function ProductList() {
@@ -75,6 +76,7 @@ function ProductList() {
                         <td>ID</td>
                         <td>Name</td>
                         <td>Price</td>
+                        <td>Image</td>
                         <td>Action</td>
                     </tr>
                 </thead>
@@ -85,6 +87,11 @@ function ProductList() {
                                 <td>{product.id}</td>
                                 <td>{product.name}</td>
                                 <td>{product.price}</td>
+                                <td>{
+                                    product.image
+                                    ? <img src={product.image} alt="" width={100}/>
+                                    : null
+                                }</td>
                                 <td>
                                     <Link to={`/products/${product.id}`}>
                                         <button>Detail</button>

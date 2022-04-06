@@ -37,6 +37,7 @@ export default function PostList() {
                             <td>Tiêu đề</td>
                             <td>Tác giả</td>
                             <td>Trạng thái</td>
+                            <td>Ảnh đại diện</td>
                             <td>Hành động</td>
                         </tr>
                     </thead>
@@ -48,6 +49,11 @@ export default function PostList() {
                                     <td>{post.title}</td>
                                     <td>{post.author}</td>
                                     <td>{post.status ? 'Kích hoạt': 'Không kích hoạt'}</td>
+                                    <td>{
+                                        post.thumbnail
+                                        ? <img src={post.thumbnail} width={100} alt="" />
+                                        : null
+                                    }</td>
                                     <td><Link to={`/posts/edit/${post.id}`}>Chỉnh sửa</Link></td>
                                 </tr>
                             ))
